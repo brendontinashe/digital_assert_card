@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate QR Code - Digital Asset Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="generate_qr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="dashboard-body">
+    <!-- Navigation Panel -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-qrcode"></i>
+            <span>Digital Asset Card</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+            </li>
+            <li class="active">
+                <a href="generate_qr.html"><i class="fas fa-plus-circle"></i> Generate QR</a>
+            </li>
+            <li>
+                <a href="view_qr.html"><i class="fas fa-camera"></i> Scan QR</a>
+            </li>
+            <li>
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            <li>
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="dashboard-header">
+            <div class="header-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search assets...">
+            </div>
+            <div class="header-profile">
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <img src="default-avatar.png" alt="Profile" class="profile-pic">
+                <span class="user-name">John Doe</span>
+            </div>
+        </header>
+
+        <div class="content-grid">
+            <!-- QR Code Form Section -->
+            <div class="qr-generator-container">
+                <h2><i class="fas fa-qrcode"></i> Generate Asset QR Code</h2>
+                                  <form id="assetForm" class="asset-form">
+                                      <!-- Add this inside the form, before the asset type -->
+                                      <div class="image-upload-section">
+                                          <div class="student-image-preview">
+                                              <img id="imagePreview" src="assets/default-avatar.png" alt="Student Image">
+                                          </div>
+                                          <div class="upload-controls">
+                                              <label for="studentImage" class="upload-btn">
+                                                  <i class="fas fa-camera"></i> Upload Student Photo
+                                              </label>
+                                              <input type="file" id="studentImage" accept="image/*" hidden>
+                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          <label>Asset Type</label>
+                                          <select id="assetType" required>
+                                              <option value="">Select Asset Type</option>
+                                              <option value="laptop">Laptop</option>
+                                              <option value="tablet">Tablet</option>
+                                          </select>
+                                      </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Brand Name</label>
+                            <input type="text" id="brandName" required placeholder="e.g., Dell, HP">
+                        </div>
+                        <div class="form-group">
+                            <label>Model</label>
+                            <input type="text" id="model" required placeholder="e.g., Latitude 5420">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Serial Number</label>
+                            <input type="text" id="serialNumber" required placeholder="Enter serial number">
+                        </div>
+                        <div class="form-group">
+                            <label>Color</label>
+                            <input type="text" id="color" required placeholder="e.g., Silver">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Additional Details</label>
+                        <textarea id="additionalDetails" rows="3" placeholder="Enter any additional information"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="generate-btn">
+                            <i class="fas fa-qrcode"></i> Generate QR Code
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- QR Code Preview Section -->
+            <div class="qr-preview-container">
+                <h3>Generated QR Code</h3>
+                <div class="qr-display">
+                    <div id="qrCode"></div>
+                </div>
+                <div class="qr-actions">
+                    <button id="downloadBtn" class="action-btn" disabled>
+                        <i class="fas fa-download"></i> Download
+                    </button>
+                    <button id="printBtn" class="action-btn" disabled>
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

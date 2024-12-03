@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Digital Asset Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-qrcode"></i>
+            <span>Digital Asset Card</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="active">
+                <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="generate_qr.html"><i class="fas fa-plus-circle"></i> Generate QR</a>
+            </li>
+            <li>
+                <a href="view_qr.html"><i class="fas fa-camera"></i> Scan QR</a>
+            </li>
+            <li>
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            <li>
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+        </ul>
+    </nav>
+      <main class="main-content">
+          <header class="dashboard-header">
+              <div class="header-left">
+                  <h1 class="welcome-text">
+                      <span class="greeting">Good Morning,</span>
+                      <span class="user-name" id="userName">John Doe</span>
+                  </h1>
+                  <p class="date-display" id="currentDate">Monday, 15 January 2024</p>
+              </div>
+
+              <div class="header-center">
+                  <div class="search-container">
+                      <i class="fas fa-search"></i>
+                      <input type="text" placeholder="Search assets, QR codes...">
+                      <div class="search-shortcuts">
+                          <span>⌘K</span>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="header-right">
+                  <button class="quick-action-btn">
+                      <i class="fas fa-plus"></i>
+                      <span>New Asset</span>
+                  </button>
+                
+                  <div class="notifications-dropdown">
+                      <button class="notification-btn">
+                          <i class="fas fa-bell"></i>
+                          <span class="notification-badge pulse">5</span>
+                      </button>
+                  </div>
+
+                  <div class="profile-dropdown">
+                      <div class="profile-info">
+                          <img src="profile-pic.jpg" alt="Profile" class="profile-pic">
+                          <div class="user-info">
+                              <span class="user-name">John Doe</span>
+                              <span class="user-role">Student</span>
+                          </div>
+                          <i class="fas fa-chevron-down"></i>
+                      </div>
+                  </div>
+              </div>
+          </header>
+        <div class="student-profile">
+            <!-- Student info will be inserted here -->
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Update the stats section -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Your Asset Cards</h3>
+                        <p class="stat-number" id="totalCards">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Student ID</h3>
+                        <p class="stat-number" id="studentId"></p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Member Since</h3>
+                        <p class="stat-date" id="memberSince"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="recent-activity">
+                <h2>Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>New QR Code Generated</h4>
+                            <p>Laptop - IT Department</p>
+                            <span class="activity-time">2 hours ago</span>
+                        </div>
+                    </div>
+                    <!-- More activity items -->
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <button class="action-btn">
+                        <i class="fas fa-plus"></i>
+                        New QR Code
+                    </button>
+                    <button class="action-btn">
+                        <i class="fas fa-camera"></i>
+                        Scan QR
+                    </button>
+                    <button class="action-btn">
+                        <i class="fas fa-download"></i>
+                        Export Data
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script type="module" src="scripts/firebase-config.js"></script>
+    <script type="module" src="scripts/dashboard.js"></script>
+</body>
+</html>

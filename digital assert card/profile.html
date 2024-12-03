@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Digital Asset Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-qrcode"></i>
+            <span>Digital Asset Card</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="generate_qr.html"><i class="fas fa-plus-circle"></i> Generate QR</a></li>
+            <li><a href="view_qr.html"><i class="fas fa-list"></i> View QR</a></li>
+            <li class="active"><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <div class="profile-wrapper">
+            <!-- Left Section: Profile Card -->
+            <div class="profile-card">
+                <div class="profile-image-section">
+                    <div class="profile-image-container">
+                        <img id="profileImage" src="default-avatar.png" alt="Profile Picture">
+                        <label for="imageUpload" class="image-upload-btn">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                        <input type="file" id="imageUpload" accept="image/*" hidden>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h2 id="displayName">Loading...</h2>
+                    <p id="displayEmail">Loading...</p>
+                    <p class="student-id" id="displayStudentId">Loading...</p>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="totalAssets">0</span>
+                        <span class="stat-label">Assets</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="activeDays">0</span>
+                        <span class="stat-label">Days Active</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section: Profile Details -->
+            <div class="profile-details">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="personal">Personal Info</button>
+                    <button class="tab-btn" data-tab="security">Security</button>
+                    <button class="tab-btn" data-tab="activity">Activity</button>
+                </div>
+
+                <!-- Personal Info Tab -->
+                <div class="tab-content active" id="personal">
+                    <form id="personalInfoForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" id="fullName" placeholder="Your full name">
+                            </div>
+                            <div class="form-group">
+                                <label>Student ID</label>
+                                <input type="text" id="studentId" readonly>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="email" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" id="phone" placeholder="Your phone number">
+                            </div>
+                        </div>
+                        <button type="submit" class="save-btn">Save Changes</button>
+                    </form>
+                </div>
+
+                <!-- Security Tab -->
+                <div class="tab-content" id="security">
+                    <form id="securityForm">
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password" id="currentPassword">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" id="newPassword">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" id="confirmPassword">
+                            </div>
+                        </div>
+                        <button type="submit" class="save-btn">Update Password</button>
+                    </form>
+                </div>
+
+                <!-- Activity Tab -->
+                <div class="tab-content" id="activity">
+                    <div class="activity-list" id="activityLog">
+                        <!-- Activity items will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script type="module" src="scripts/profile.js"></script>
+</body>
+</html>

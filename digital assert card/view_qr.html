@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View & Scan QR Codes - Digital Asset Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="view_qr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body class="dashboard-body">
+    <!-- Navigation Panel -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-qrcode"></i>
+            <span>Digital Asset Card</span>
+        </div>
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="generate_qr.html"><i class="fas fa-plus-circle"></i> Generate QR</a>
+            </li>
+            <li class="active">
+                <a href="view_qr.html"><i class="fas fa-list"></i> View QR</a>
+            </li>
+            <li>
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            </li>
+            <li>
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="main-content">
+        <header class="dashboard-header">
+            <div class="header-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search assets...">
+            </div>
+            <div class="header-profile">
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <img src="default-avatar.png" alt="Profile" class="profile-pic">
+                <span class="user-name">John Doe</span>
+            </div>
+        </header>
+
+        <div class="scan-options">
+            <button class="scan-btn" id="cameraScanBtn">
+                <i class="fas fa-camera"></i> Scan with Camera
+            </button>
+            <button class="scan-btn" id="fileScanBtn">
+                <i class="fas fa-file-upload"></i> Upload QR Image
+            </button>
+            <input type="file" id="qrFileInput" accept="image/*" hidden>
+        </div>
+
+        <div id="scannerContainer" class="scanner-container" style="display: none;">
+            <div id="reader"></div>
+            <button id="closeScannerBtn" class="close-scanner">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="view-qr-container">
+            <div class="filters-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search assets...">
+                </div>
+                <div class="filter-options">
+                    <select id="typeFilter">
+                        <option value="">All Types</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="tablet">Tablet</option>
+                    </select>
+                    <select id="statusFilter">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="qr-grid" id="qrCodesGrid">
+                <!-- QR codes will be dynamically inserted here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for QR Code Details -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <div class="modal-body">
+                <div class="qr-details">
+                    <div class="qr-image">
+                        <img id="modalQrImage" src="" alt="QR Code">
+                    </div>
+                    <div class="asset-info">
+                        <h3>Asset Details</h3>
+                        <div class="info-grid">
+                            <!-- Details will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="downloadBtn" class="action-btn">
+                        <i class="fas fa-download"></i> Download QR
+                    </button>
+                    <button id="printBtn" class="action-btn">
+                        <i class="fas fa-print"></i> Print QR
+                    </button>
+                    <button id="deleteBtn" class="action-btn delete">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

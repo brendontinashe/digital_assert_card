@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan QR Code - Digital Asset Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="scan_qr.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body class="dashboard-body">
+    <!-- Navigation Panel -->
+    <nav class="sidebar">
+        <!-- Same sidebar as other pages -->
+    </nav>
+
+    <main class="main-content">
+        <div class="scan-container">
+            <div class="scan-options">
+                <button class="scan-btn active" data-mode="camera">
+                    <i class="fas fa-camera"></i>
+                    Camera Scan
+                </button>
+                <button class="scan-btn" data-mode="upload">
+                    <i class="fas fa-upload"></i>
+                    Upload QR
+                </button>
+            </div>
+
+            <div class="scanner-container">
+                <div id="reader"></div>
+                <input type="file" id="qr-input-file" accept="image/*" hidden>
+            </div>
+
+            <div class="result-container" style="display: none;">
+                <h3>Asset Details</h3>
+                <div class="asset-details">
+                    <div class="asset-image">
+                        <img id="studentImage" src="" alt="Student Image">
+                    </div>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="label">Asset Type</span>
+                            <span id="assetType" class="value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Brand</span>
+                            <span id="brandName" class="value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Model</span>
+                            <span id="model" class="value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Serial Number</span>
+                            <span id="serialNumber" class="value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Color</span>
+                            <span id="color" class="value"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Status</span>
+                            <span id="status" class="value"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

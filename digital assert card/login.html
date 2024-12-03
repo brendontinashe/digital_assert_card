@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Digital Asset Card</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to continue</p>
+            </div>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fas fa-eye toggle-password"></i>
+                </div>
+                <button type="submit" class="auth-button">Sign In</button>
+            </form>
+            <div class="divider">
+                <span>or</span>
+            </div>
+            <button id="googleSignIn" class="google-button">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAsVJREFUWEftl0uojVEUx3/XIwp1laTcoVImlDyiEKUr5Jli4j3xHkmSkoFMlPfAQAYUCkUMUCTPyERKYaAQwhUm3vtf+9S5297f3uucO7iDu+r01fnW47/e62uhm1FLN8NDD6BcRpqJ0EBgAtAGDAN+Am+AF8BD4G/OeOy9FZD4lwErgKlA34TRd8Bp4CDw3ALMAmgScAQYbTCgKJ0FNgECmaVSQCuBY0DvrMY4w1tgIXAvJ18CaBewM6co8/6Hq6s5wNWcnhwg1cvJnJLM++/ALOBWiZ4qQFOA60CfhKKbwCngKfAE6HA1NhRYDazz3fcVmFmSqpqNFKBewDNgRASM2nsrsL+iteXEduAi8LgkMjlAS733oa7ffvY8shix8KYidM3lfEZEkbzeYzFg5Y0B6gd8cYb1rCdFZbzruD9WIxb+GKBxwIOIEk3nEwnl/YFtFsN+BNwOZWKA5gEXIsonuva9nzDaCnw2Ajrqu7GTWAzQRuBARPkg4FvC6GC3Hj4ZAcnpBSURWg8ciigf7rd5zG4jEToHLCoBtMRv6pB3tivqy10YoeKUaUJrCoekot2bAKTb6FJFynQphKeK9uPukgipVlSg4WZ/BYwCtJssNAT4EBGYG3MiNRiVGi3EkI4DqyxofBR2BDLa/nJcz2yXiaHdrYgrCcMbgMOFoOSU9lkYbTmsmvyPqra9hpZyHyMZWePmyPsKYJuBfYAWdUjSe9cKaCSgdTEgYfSj78YbgH6a1mP8eple4cx5fz1G1eYOtMX+Ji7MUJZNxa2bXCdtQ4AkpPbUGdss/QI0UqKpqinPRajGtxbQIGv0yFdk5rvr8U7Oq1JA0jPZd5flM0hy+gzaUrF2OmG0AJJg7UNxuSvkaRUfiq/dED3jd+LLXFTq31sB1ctqXYz1IOv/13FnuqO7CpDF8WLeZiJUbMTC2AMoF61/m1dvJTo09XkAAAAASUVORK5CYII="/>
+                Sign in with Google
+            </button>
+            <div class="auth-links">
+                <a href="forgot-password.html">Forgot Password?</a>
+                <a href="register.html">Create Account</a>
+            </div>
+        </div>
+    </div>
+    
+    <script type="module" src="scripts/firebase-config.js"></script>
+    <script type="module" src="scripts/login.js"></script>
+</body>
+</html>
